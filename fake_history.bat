@@ -13,7 +13,7 @@ for /L %%i in (1,1,56) do (
 
     git add .
 
-    git commit --date="2025-09-30T12:%%i:25" -m "update %%i"
+    git commit --date="2025-09-24T12:%%i:25" -m "update %%i"
 )
 
 git push origin main
