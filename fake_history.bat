@@ -2,7 +2,7 @@
 
 set file=index.html
 
-for /L %%i in (1,1,24) do (
+for /L %%i in (1,1,27) do (
     if %%i lss 5 (
         echo ^<h1^>Update %%i^</h1^> >> %file%
     ) else if %%i lss 10 (
@@ -13,7 +13,7 @@ for /L %%i in (1,1,24) do (
 
     git add .
 
-    git commit --date="2026-01-23T12:%%i:00" -m "update %%i"
+    git commit --date="2026-01-13T12:%%i:00" -m "update %%i"
 )
 
 git push origin main
