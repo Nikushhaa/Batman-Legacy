@@ -2,7 +2,7 @@
 
 set file=index.html
 
-for /L %%i in (1,1,17) do (
+for /L %%i in (1,1,24) do (
     if %%i lss 5 (
         echo ^<h1^>Update %%i^</h1^> >> %file%
     ) else if %%i lss 10 (
