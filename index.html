@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gotham Nexus — Enter The Dark</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Cinzel for headings (regal/gothic), Rajdhani for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+       CURSOR SPOTLIGHT — follows mouse, cinematic torch effect
+  ============================================================ -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ============================================================
+       NAVIGATION BAR
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+
+      <!-- Logo / Brand -->
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">
+          <!-- Inline SVG Batman logo silhouette -->
+          <svg viewBox="0 0 100 60" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M50 5 C30 5 10 20 5 35 C15 28 25 32 30 38 C20 38 12 45 15 55
+                     C22 48 32 47 38 52 C42 56 46 58 50 58
+                     C54 58 58 56 62 52 C68 47 78 48 85 55
+                     C88 45 80 38 70 38 C75 32 85 28 95 35
+                     C90 20 70 5 50 5Z"/>
+          </svg>
+        </span>
+        <span class="logo-text">GOTHAM <em>NEXUS</em></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero"     class="nav-link" data-text="Home">Home</a></li>
+        <li><a href="#about"    class="nav-link" data-text="Legacy">Legacy</a></li>
+        <li><a href="#gadgets"  class="nav-link" data-text="Arsenal">Arsenal</a></li>
+        <li><a href="#rogues"   class="nav-link" data-text="Rogues">Rogues</a></li>
+        <li><a href="#contact"  class="nav-link" data-text="Signal">Signal</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="#contact" class="nav-cta">Activate Signal</a>
+
+      <!-- Hamburger for mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#hero"    class="mob-link" onclick="closeMobile()">Home</a></li>
+      <li><a href="#about"   class="mob-link" onclick="closeMobile()">Legacy</a></li>
+      <li><a href="#gadgets" class="mob-link" onclick="closeMobile()">Arsenal</a></li>
+      <li><a href="#rogues"  class="mob-link" onclick="closeMobile()">Rogues</a></li>
+      <li><a href="#contact" class="mob-link" onclick="closeMobile()">Signal</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section class="hero" id="hero">
+
+    <!-- Animated rain overlay -->
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Bat-signal beam -->
+    <div class="bat-signal-beam"></div>
+
+    <!-- Background city silhouette -->
+    <div class="city-silhouette"></div>
+
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-reveal>The Dark Knight Chronicles</p>
+
+      <h1 class="hero-title" data-reveal>
+        <span class="line">FEAR IS</span>
+        <span class="line accent">YOUR WEAPON</span>
+      </h1>
+
+      <p class="hero-subtitle" data-reveal>
+        Gotham's protector. The shadow between order and chaos.<br>
+        Justice delivered in darkness — where the light cannot reach.
+      </p>
+
+      <div class="hero-actions" data-reveal>
+        <a href="#gadgets" class="btn btn-primary">
+          <span>Explore Arsenal</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about" class="btn btn-ghost">The Legacy</a>
+      </div>
+
+      <!-- Stat bar -->
+      <div class="hero-stats" data-reveal>
+        <div class="stat">
+          <span class="stat-num" data-count="73">0</span>
+          <span class="stat-label">Villains Captured</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="22">0</span>
+          <span class="stat-label">Years Protecting</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="142">0</span>
+          <span class="stat-label">Cases Solved</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero scroll indicator -->
+    <div class="scroll-indicator">
+      <span>Scroll Down</span>
+      <div class="scroll-line"></div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       BATMAN LOGO FOCAL SECTION
+  ============================================================ -->
+  <section class="logo-section" id="logoSection">
+    <div class="logo-section-inner">
+      <div class="big-bat-logo" id="bigBatLogo">
+        <svg viewBox="0 0 200 120" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 8 C68 8 28 28 15 58 C30 48 48 52 56 62 C40 60 22 70 24 88
+                   C36 78 52 76 62 84 C70 90 82 96 100 96
+                   C118 96 130 90 138 84 C148 76 164 78 176 88
+                   C178 70 160 60 144 62 C152 52 170 48 185 58
+                   C172 28 132 8 100 8Z"/>
+        </svg>
+      </div>
+      <div class="logo-section-text">
+        <h2 class="section-label">Est. Gotham City</h2>
+        <p class="logo-tagline">I am the night.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT / LEGACY SECTION
+  ============================================================ -->
+  <section class="about" id="about">
+    <div class="container">
+
+      <div class="section-header" data-reveal>
+        <span class="section-tag">// The Origin</span>
+        <h2 class="section-title">The <span class="accent">Wayne</span> Legacy</h2>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Left: image-like graphic card -->
+        <div class="about-visual" data-reveal>
+          <div class="about-portrait">
+            <div class="portrait-inner">
+              <div class="portrait-silhouette">
+                <!-- Standing Batman silhouette via CSS/SVG -->
+                <svg viewBox="0 0 180 320" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Cape -->
+                  <path d="M90 10 C60 10 20 60 5 120 C25 100 45 110 55 130
+                           C35 130 10 150 15 180 L90 320 L165 180
+                           C170 150 145 130 125 130 C135 110 155 100 175 120
+                           C160 60 120 10 90 10Z" opacity="0.9"/>
+                  <!-- Body -->
+                  <ellipse cx="90" cy="140" rx="28" ry="40"/>
+                  <!-- Head/Cowl -->
+                  <ellipse cx="90" cy="80" rx="22" ry="26"/>
+                  <!-- Ears -->
+                  <polygon points="74,60 68,35 80,58"/>
+                  <polygon points="106,60 112,35 100,58"/>
+                  <!-- Bat symbol on chest -->
+                  <path d="M90 128 C82 128 72 134 70 140 C76 136 82 138 85 142 C80 140 74 144 75 150 C80 145 86 144 90 147 C94 144 100 145 105 150 C106 144 100 140 95 142 C98 138 104 136 110 140 C108 134 98 128 90 128Z" fill="#f0c000"/>
+                </svg>
+              </div>
+              <div class="portrait-glow-ring"></div>
+            </div>
+            <div class="portrait-label">Bruce Wayne / Batman</div>
+          </div>
+        </div>
+
+        <!-- Right: text content -->
+        <div class="about-content" data-reveal>
+          <p class="about-intro">
+            Born from tragedy. Forged in discipline. Gotham's eternal guardian operates beyond the law — a dark symbol engineered to strike fear into the criminal mind.
+          </p>
+
+          <div class="about-facts">
+            <div class="fact-item">
+              <span class="fact-icon">◈</span>
+              <div>
+                <strong>Bruce Thomas Wayne</strong>
+                <span>CEO, Wayne Enterprises — Philanthropist by day, vigilante by night.</span>
+              </div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-icon">◈</span>
+              <div>
+                <strong>Peak Human Conditioning</strong>
+                <span>Master of 127 martial arts disciplines, Olympic-level athlete, genius-level intellect.</span>
+              </div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-icon">◈</span>
+              <div>
+                <strong>Wayne Tech Arsenal</strong>
+                <span>R&amp;D budget exceeding $4 billion annually dedicated to crime-fighting technology.</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#gadgets" class="btn btn-primary">View The Arsenal</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GADGETS / ARSENAL CARDS SECTION
+  ============================================================ -->
+  <section class="gadgets" id="gadgets">
+    <div class="container">
+
+      <div class="section-header" data-reveal>
+        <span class="section-tag">// Wayne Tech R&D</span>
+        <h2 class="section-title">The <span class="accent">Arsenal</span></h2>
+        <p class="section-desc">Precision-engineered instruments of justice — each one a masterwork of clandestine technology.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="gadget-filters" data-reveal>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="vehicle">Vehicles</button>
+        <button class="filter-btn" data-filter="weapon">Weapons</button>
+        <button class="filter-btn" data-filter="tech">Tech</button>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="gadgets-grid" id="gadgetsGrid">
+
+        <div class="gadget-card" data-category="vehicle" data-reveal>
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 80 40" fill="currentColor"><path d="M5 30 C5 20 15 15 25 18 L35 10 L45 10 L55 18 C65 15 75 20 75 30 L65 35 L15 35 Z"/><circle cx="20" cy="34" r="5"/><circle cx="60" cy="34" r="5"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Vehicle</span>
+            <h3>Batmobile</h3>
+            <p>Twin-turbine pursuit vehicle. 0–60 in 2.8 seconds. Reactive armor plating. EMP shielding. Afterburner capable.</p>
+            <div class="card-stats">
+              <span>Top Speed: 230 mph</span>
+              <span>Armor: Grade IX</span>
+            </div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <div class="gadget-card" data-category="weapon" data-reveal>
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 80 80" fill="currentColor"><path d="M40 5 L48 28 L72 28 L53 44 L61 68 L40 53 L19 68 L27 44 L8 28 L32 28 Z" opacity="0.2"/><path d="M40 10 C36 10 28 18 28 28 C28 38 36 46 40 48 C44 46 52 38 52 28 C52 18 44 10 40 10Z"/><rect x="36" y="48" width="8" height="20" rx="2"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Weapon</span>
+            <h3>Batarang Mark VII</h3>
+            <p>Folding tri-blade design. Smart-return guidance system. Tungsten-alloy composite. GPS tracking embedded.</p>
+            <div class="card-stats">
+              <span>Range: 120ft</span>
+              <span>Precision: ±0.5in</span>
+            </div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <div class="gadget-card" data-category="tech" data-reveal>
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 80 80" fill="currentColor"><rect x="15" y="15" width="50" height="50" rx="6" opacity="0.2"/><rect x="20" y="20" width="40" height="40" rx="4"/><circle cx="40" cy="40" r="10" fill="var(--accent)"/><circle cx="40" cy="40" r="5" fill="var(--bg)"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Tech</span>
+            <h3>Batcomputer X</h3>
+            <p>Quantum-encrypted mainframe. City-wide surveillance integration. 40 petabyte forensic database. Neural interface capable.</p>
+            <div class="card-stats">
+              <span>Coverage: 100%</span>
+              <span>Response: 0.3ms</span>
+            </div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <div class="gadget-card" data-category="vehicle" data-reveal>
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 80 80" fill="currentColor"><path d="M40 10 L65 50 L55 55 L40 30 L25 55 L15 50 Z"/><ellipse cx="40" cy="55" rx="20" ry="8" opacity="0.4"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Vehicle</span>
+            <h3>Batwing MK-3</h3>
+            <p>Stealth VTOL aircraft. Radar-absorbing composite hull. Tri-mode propulsion. Hypersonic sprint capability.</p>
+            <div class="card-stats">
+              <span>Altitude: 85,000ft</span>
+              <span>Stealth: Full RCS</span>
+            </div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <div class="gadget-card" data-category="weapon" data-reveal>
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 80 80" fill="currentColor"><circle cx="40" cy="30" r="16" opacity="0.2"/><circle cx="40" cy="30" r="10"/><rect x="36" y="44" width="8" height="26" rx="3"/><rect x="28" y="56" width="24" height="6" rx="2" opacity="0.6"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Weapon</span>
+            <h3>Grapple Gun Pro</h3>
+            <p>High-tensile micro-filament. 15-story vertical ascent in 3.2 seconds. 300kg load rating. Magnetized tip variants.</p>
+            <div class="card-stats">
+              <span>Cable: 800ft</span>
+              <span>Load: 300kg</span>
+            </div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <div class="gadget-card" data-category="tech" data-reveal>
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 80 80" fill="currentColor"><path d="M20 20 L60 20 L65 40 L60 60 L20 60 L15 40 Z" opacity="0.2"/><path d="M25 28 L55 28 L58 40 L55 52 L25 52 L22 40 Z"/><circle cx="40" cy="40" r="6" fill="var(--accent)"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Tech</span>
+            <h3>Cowl HUD System</h3>
+            <p>Augmented tactical overlay. Biometric scanning. Thermal &amp; sonar vision. Encrypted comms uplink to Oracle.</p>
+            <div class="card-stats">
+              <span>Vision: 12 Modes</span>
+              <span>Latency: &lt;1ms</span>
+            </div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ROGUES GALLERY SECTION
+  ============================================================ -->
+  <section class="rogues" id="rogues">
+    <div class="container">
+
+      <div class="section-header" data-reveal>
+        <span class="section-tag">// Arkham Records</span>
+        <h2 class="section-title">Rogues <span class="accent">Gallery</span></h2>
+        <p class="section-desc">The denizens of darkness that define Gotham's most dangerous nights.</p>
+      </div>
+
+      <div class="rogues-track-wrapper" data-reveal>
+        <div class="rogues-track" id="roguesTrack">
+
+          <div class="rogue-card">
+            <div class="rogue-symbol" style="--clr:#9B59B6">?</div>
+            <h4>The Riddler</h4>
+            <p>Edward Nygma. Obsessive compulsion to challenge Batman's intellect with deadly puzzles.</p>
+            <span class="threat-badge" style="--tc:#9B59B6">Threat: Extreme</span>
+          </div>
+
+          <div class="rogue-card">
+            <div class="rogue-symbol" style="--clr:#28B463">♦</div>
+            <h4>Poison Ivy</h4>
+            <p>Pamela Isley. Eco-terrorist with botanical bio-control and lethal pheromone synthesis.</p>
+            <span class="threat-badge" style="--tc:#28B463">Threat: High</span>
+          </div>
+
+          <div class="rogue-card">
+            <div class="rogue-symbol" style="--clr:#5DADE2">❄</div>
+            <h4>Mr. Freeze</h4>
+            <p>Victor Fries. Cryogenic suit provides sub-zero weaponry and environmental temperature mastery.</p>
+            <span class="threat-badge" style="--tc:#5DADE2">Threat: High</span>
+          </div>
+
+          <div class="rogue-card">
+            <div class="rogue-symbol" style="--clr:#E74C3C">☠</div>
+            <h4>Scarecrow</h4>
+            <p>Jonathan Crane. Weaponized fear toxin — neurochemical warfare against the human psyche.</p>
+            <span class="threat-badge" style="--tc:#E74C3C">Threat: Critical</span>
+          </div>
+
+          <div class="rogue-card">
+            <div class="rogue-symbol" style="--clr:#F0C000">HA</div>
+            <h4>The Joker</h4>
+            <p>The Clown Prince of Crime. Chaos incarnate. No origin. No motive. No mercy.</p>
+            <span class="threat-badge" style="--tc:#F0C000">Threat: Omega</span>
+          </div>
+
+          <div class="rogue-card">
+            <div class="rogue-symbol" style="--clr:#E67E22">🐧</div>
+            <h4>The Penguin</h4>
+            <p>Oswald Cobblepot. Gotham's premier crime lord operating behind a veneer of high society.</p>
+            <span class="threat-badge" style="--tc:#E67E22">Threat: High</span>
+          </div>
+
+          <!-- Duplicate for infinite loop illusion -->
+          <div class="rogue-card">
+            <div class="rogue-symbol" style="--clr:#9B59B6">?</div>
+            <h4>The Riddler</h4>
+            <p>Edward Nygma. Obsessive compulsion to challenge Batman's intellect with deadly puzzles.</p>
+            <span class="threat-badge" style="--tc:#9B59B6">Threat: Extreme</span>
+          </div>
+          <div class="rogue-card">
+            <div class="rogue-symbol" style="--clr:#28B463">♦</div>
+            <h4>Poison Ivy</h4>
+            <p>Pamela Isley. Eco-terrorist with botanical bio-control and lethal pheromone synthesis.</p>
+            <span class="threat-badge" style="--tc:#28B463">Threat: High</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BAT-SIGNAL / CTA SECTION
+  ============================================================ -->
+  <section class="contact" id="contact">
+    <div class="bat-signal-cta" id="batSignalCta">
+      <div class="signal-rings">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+      </div>
+      <div class="signal-icon">
+        <svg viewBox="0 0 120 72" fill="currentColor"><path d="M60 4 C40 4 16 18 8 36 C18 28 30 32 36 40 C26 38 14 46 16 58 C24 50 36 49 43 55 C49 59 54 62 60 62 C66 62 71 59 77 55 C84 49 96 50 104 58 C106 46 94 38 84 40 C90 32 102 28 112 36 C104 18 80 4 60 4Z"/></svg>
+      </div>
+    </div>
+
+    <div class="cta-content" data-reveal>
+      <span class="section-tag">// Send The Signal</span>
+      <h2 class="cta-title">Gotham <span class="accent">Needs You</span></h2>
+      <p>Join the network. Stay informed. Receive tactical briefings from the Batcave directly to your inbox.</p>
+
+      <form class="signal-form" id="signalForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-row">
+          <input type="text"  name="name"  placeholder="Operative Name"  required />
+          <input type="email" name="email" placeholder="Secure Email"     required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          <span>Activate The Signal</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        </button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <span>✦</span> Signal received. The night will find you.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg viewBox="0 0 100 60" fill="currentColor"><path d="M50 5 C30 5 10 20 5 35 C15 28 25 32 30 38 C20 38 12 45 15 55 C22 48 32 47 38 52 C42 56 46 58 50 58 C54 58 58 56 62 52 C68 47 78 48 85 55 C88 45 80 38 70 38 C75 32 85 28 95 35 C90 20 70 5 50 5Z"/></svg>
+        <span>GOTHAM NEXUS</span>
+      </div>
+      <p class="footer-text">© 2025 Gotham Nexus — A Wayne Enterprises Initiative. All rights reserved.</p>
+      <p class="footer-sub">Batman and all related characters are property of DC Comics / Warner Bros.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
