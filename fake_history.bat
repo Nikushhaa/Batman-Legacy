@@ -1,15 +1,30 @@
 @echo off
 
-set file=test.html
+echo ============================
+echo Git Auto Commit & Push Tool
+echo ============================
 
-for /L %%i in (1,1,15) do (
-    echo Update %%i >> %file%
+:: add all changes
+git add .
 
-    git add .
-
-    git commit --date="2026-06-28T12:%%i:00" -m "update %%i"
+:: check if there is something to commit
+git diff --cached --quiet
+if %errorlevel%==0 (
+    echo No changes to commit.
+    pause
+    exit
 )
 
+:: ask for commit message
+set /p msg=Enter commit message: 
+
+:: commit
+git commit -m "%msg%"
+
+:: push to main branch
 git push origin main
 
+echo ============================
+echo Done!
+echo ============================
 pause
